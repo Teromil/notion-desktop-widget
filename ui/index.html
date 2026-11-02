@@ -1,0 +1,129 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Notion виджет</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="root">
+
+  <header class="head" id="head">
+    <div class="head-text">
+      <div class="day" id="day"></div>
+      <div class="subline" id="subline"></div>
+    </div>
+    <div class="head-tools">
+      <span class="clock" id="clock"></span>
+      <button class="icon-btn" id="btn-ask" title="Спросить ИИ" data-action="toggle-ask"></button>
+      <button class="icon-btn" id="btn-pin" title="Поверх всех окон" data-action="toggle-pin"></button>
+      <button class="icon-btn" id="btn-refresh" title="Обновить" data-action="refresh"></button>
+      <button class="icon-btn" id="btn-settings" title="Настройки" data-action="open-settings"></button>
+      <button class="icon-btn" id="btn-hide" title="Скрыть" data-action="hide"></button>
+    </div>
+  </header>
+
+  <main id="body">
+
+    <div class="stats" id="stats" hidden>
+      <div class="stat" id="st-cpu"><div class="stat-top"><span>ЦП</span><b>–</b></div><div class="stat-bar"><i></i></div></div>
+      <div class="stat" id="st-gpu"><div class="stat-top"><span>ГП</span><b>–</b></div><div class="stat-bar"><i></i></div></div>
+      <div class="stat" id="st-ram"><div class="stat-top"><span>ОЗУ</span><b>–</b></div><div class="stat-bar"><i></i></div></div>
+    </div>
+
+    <div class="claude-row" id="claude-row" hidden>
+      <button class="claude-btn" id="claude-btn" data-action="open-claude" title="Открыть Claude"></button>
+      <div class="claude-limits" id="claude-limits" data-action="refresh-claude"></div>
+    </div>
+
+    <div class="cols">
+    <div class="col col-main">
+
+    <section class="ask card" id="ask" hidden>
+      <div class="ask-head">
+        <span class="ask-title" id="ask-title"></span>
+        <button class="text-btn" data-action="new-chat">Новый чат</button>
+      </div>
+      <div class="ask-log" id="ask-log"></div>
+      <div class="ask-input">
+        <textarea id="ask-text" rows="1" placeholder="Спроси что-нибудь…"></textarea>
+        <button class="send-btn" id="ask-send" data-action="send" title="Отправить (Enter)"></button>
+      </div>
+    </section>
+
+    <section id="overdue"></section>
+    <div class="chips" id="chips"></div>
+
+    <section class="tasks-sec" id="tasks-sec">
+      <div class="section-title" id="list-title">Сегодня</div>
+      <ul class="tasks" id="list"></ul>
+    </section>
+
+    <label class="quick-add" id="quick-wrap">
+      <span class="quick-icon" id="quick-icon"></span>
+      <input id="quick" placeholder="Новая задача: созвон завтра 15:00" autocomplete="off">
+    </label>
+
+    </div>
+    <div class="col col-side">
+
+    <section class="upcoming" id="upcoming"></section>
+
+    <section class="calendar" id="calendar-sec">
+      <div class="cal-head">
+        <button class="section-toggle" data-action="toggle-cal"><span id="cal-chevron"></span>Календарь</button>
+        <div class="cal-nav" id="cal-nav">
+          <button class="icon-btn small" data-action="prev-month" id="btn-prev"></button>
+          <span id="month"></span>
+          <button class="icon-btn small" data-action="next-month" id="btn-next"></button>
+        </div>
+      </div>
+      <div class="cal-grid" id="cal"></div>
+    </section>
+
+    <section class="player card" id="player" hidden>
+      <div class="player-track" data-action="spotify-open" title="Открыть Spotify">
+        <div class="cover" id="cover"><span class="player-icon" id="player-icon"></span></div>
+        <div class="player-meta">
+          <div class="player-title" id="player-title">Spotify</div>
+          <div class="player-artist" id="player-artist"></div>
+        </div>
+      </div>
+      <div class="player-progress" id="sp-progress" hidden>
+        <span id="sp-pos">0:00</span>
+        <input type="range" id="seek" min="0" max="100" step="1" value="0">
+        <span id="sp-dur">0:00</span>
+      </div>
+      <div class="player-controls">
+        <button class="icon-btn" data-action="sp-previous" id="sp-prev"></button>
+        <button class="icon-btn play" data-action="sp-play_pause" id="sp-play"></button>
+        <button class="icon-btn" data-action="sp-next" id="sp-next"></button>
+        <span class="vol-icon" id="vol-icon"></span>
+        <input type="range" id="volume" min="0" max="100" value="50">
+      </div>
+    </section>
+
+    </div>
+    </div>
+
+    <div class="status" id="status"></div>
+  </main>
+
+  <div class="resize-grip" id="grip" title="Потяни, чтобы изменить размер · двойной клик — вернуть авторазмер"></div>
+
+  <section class="settings" id="settings" hidden>
+    <div class="settings-head">
+      <span class="settings-title">Настройки</span>
+      <button class="text-btn" data-action="close-settings">Закрыть</button>
+    </div>
+    <form id="settings-form" autocomplete="off"></form>
+    <div class="status err" id="settings-error"></div>
+    <div class="settings-actions">
+      <button class="btn" data-action="close-settings">Отмена</button>
+      <button class="btn primary" data-action="save-settings">Сохранить и перезапустить</button>
+    </div>
+  </section>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

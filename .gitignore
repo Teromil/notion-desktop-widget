@@ -1,0 +1,14 @@
+# Secrets and personal data: never commit
+config.json
+state.json
+notified.json
+claude_limits.json
+claude_limits.tmp
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Old tkinter preview
+widget_preview.png

@@ -1,0 +1,11 @@
+pywebview
+anthropic
+google-genai
+pycaw
+pystray
+pillow
+tzdata
+winrt-runtime
+winrt-Windows.Media.Control
+winrt-Windows.Storage.Streams
+winrt-Windows.Foundation

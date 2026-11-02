@@ -1,0 +1,36 @@
+{
+  "token": "ntn_ВСТАВЬ_СЮДА_ТОКЕН_ИНТЕГРАЦИИ",
+  "database_id": "ССЫЛКА_НА_БАЗУ_ИЛИ_ЕЁ_ID",
+
+  "date_property": "Date",
+  "done_property": "Status",
+  "done_value": "Done",
+  "todo_value": "Not started",
+  "tag_property": "Tags",
+  "extra_filter": null,
+
+  "ical_urls": [],
+
+  "ai_provider": "gemini",
+  "gemini": {
+    "api_key": "",
+    "model": "gemini-flash-latest",
+    "fallback_models": ["gemini-3-flash-preview", "gemini-flash-lite-latest"]
+  },
+  "claude": {
+    "api_key": "",
+    "model": "claude-opus-5-5",
+    "effort": "low"
+  },
+
+  "spotify": true,
+  "stats": true,
+  "claude_limits": true,
+  "claude_refresh_minutes": 60,
+
+  "hotkey": "ctrl+alt+n",
+  "notify_minutes": 10,
+  "open_in_app": true,
+  "refresh_minutes": 5,
+  "opacity": 1.0
+}
